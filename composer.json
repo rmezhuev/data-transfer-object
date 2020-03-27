@@ -1,0 +1,35 @@
+{
+    "name": "rmezhuev/data-transfer-object",
+    "description": "Plain and simple immutable DTO pattern implementation based on php annotations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ruslan Mezhuev",
+            "email": "r.mezhuev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "illuminate/support": "^5.0|^6.0|^7.0",
+        "hartmann/magic-property-extractor": "^0.1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "symfony/var-dumper": "^5.0",
+        "fzaninotto/faker": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "RMezhuev\\DTO\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RMezhuev\\DTO\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
+    }
+}
