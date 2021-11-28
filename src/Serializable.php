@@ -25,7 +25,14 @@ trait Serializable
      */
     public function toArray(): array
     {
-        $serialized = collect($this->properties)->mapWithKeys(function ($value, $property) {
+        $serialized = collect($this->properties);
+
+        //partial serialization only for initialized properties
+        if ($this->isPartial) {
+            $serialized = $serialized->intersectByKeys(array_flip($this->initializedProperties));
+        }
+
+        $serialized = $serialized->mapWithKeys(function ($value, $property) {
             if ($value instanceof Arrayable) {
                 $value = $value->toArray();
             }
@@ -36,11 +43,6 @@ trait Serializable
 
             return [$property => $value];
         });
-
-        //partial serialization only for initialized properties
-        if ($this->isPartial) {
-            $serialized = $serialized->intersectByKeys(array_flip($this->initializedProperties));
-        }
 
         $this->resetSerializationConditions();
 

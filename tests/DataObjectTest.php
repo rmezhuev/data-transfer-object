@@ -161,4 +161,17 @@ class DataObjectTest extends TestCase
 
         $this->assertEquals($personDetails, $dto->toArray()['person_details']);
     }
+
+    public function test_should_preserve_snake_for_partial()
+    {
+        $personDetails = new CustomType();
+
+        $dto = new TestSnakeDTO([
+            'email' => $this->faker->email,
+            'name' => $this->faker->name,
+            'personDetails' => $personDetails,
+        ]);
+
+        $this->assertEquals($personDetails, $dto->partial()->toArray()['person_details']);
+    }
 }
