@@ -1,0 +1,5 @@
+## [1.0.2] - 2021-11-28
+
+### Fixed:
+- wrong keys on serialization for partial
+- fixed dependencies for --no-dev installation
