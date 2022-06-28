@@ -3,7 +3,6 @@
 namespace RMezhuev\DTO;
 
 use ArrayAccess;
-use Hartmann\PropertyInfo\Extractor\PhpDocMagicExtractor;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Arr;
@@ -30,7 +29,7 @@ abstract class DataObject implements Arrayable, Jsonable, ArrayAccess
 
     /**
      * Extracts types for object properties from phpdoc
-     * @var PhpDocMagicExtractor
+     * @var PhpDocExtractor
      */
     private $magicExtractor;
 
@@ -62,7 +61,7 @@ abstract class DataObject implements Arrayable, Jsonable, ArrayAccess
      */
     public function __construct(array $parameters = [])
     {
-        $this->magicExtractor = new PhpDocMagicExtractor();
+        $this->magicExtractor = new PhpDocExtractor();
 
         $this->properties = collect($this->magicExtractor->getProperties(static::class))
             ->flip()
