@@ -71,7 +71,7 @@ class PhpDocExtractor implements PropertyTypeExtractorInterface, PropertyListExt
         }
 
         usort($properties, static function ($a, $b) use ($phpDoc) {
-            return strpos($phpDoc, $a) > strpos($phpDoc, $b);
+            return strpos($phpDoc, $a) <=> strpos($phpDoc, $b);
         });
 
         return $properties;
