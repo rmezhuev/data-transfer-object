@@ -13,7 +13,9 @@ use RMezhuev\DTO\Exceptions\DataObjectException;
  */
 abstract class DataObject implements Arrayable, Jsonable, ArrayAccess
 {
-    use ArrayAccessible, Validatable, Serializable;
+    use ArrayAccessible;
+    use Validatable;
+    use Serializable;
 
     /**
      * All supported properties described by PhpDoc for DTO class.
@@ -56,7 +58,7 @@ abstract class DataObject implements Arrayable, Jsonable, ArrayAccess
 
     /**
      * DataObject constructor.
-     * @param array $parameters
+     * @param  array  $parameters
      * @throws DataObjectException
      */
     public function __construct(array $parameters = [])
@@ -72,7 +74,6 @@ abstract class DataObject implements Arrayable, Jsonable, ArrayAccess
         $this->assertRequiredPropsPresent($parameters);
 
         foreach ($parameters as $parameter => $value) {
-
             $this->assertSupportedProp($parameter);
             $this->assertSupportedValueType($parameter, $value);
 

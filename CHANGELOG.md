@@ -1,3 +1,9 @@
+## [1.1.0] - 2024-01-09
+### Fixed
+- Fixed signature for ArrayAccess interface to avoid php warnings
+### Changed
+- Dropped php 7.4 support
+
 ## [1.0.7] - 2023-03-02
 ### Fixed
 - Added Laravel 10 support

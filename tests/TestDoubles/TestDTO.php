@@ -15,6 +15,3 @@ class TestDTO extends DataObject
 {
     protected $snakeOnSerialize = false;
 }
-
-
-
