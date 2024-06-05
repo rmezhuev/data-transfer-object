@@ -1,3 +1,7 @@
+## [1.2.0] - 2024-06-05
+### Added
+- Laravel 11 support
+
 ## [1.1.0] - 2024-01-09
 ### Fixed
 - Fixed signature for ArrayAccess interface to avoid php warnings
